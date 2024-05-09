@@ -1,0 +1,18 @@
+{% extends "master.html" %}
+
+{% block title %}
+    Details about {{mydishes.name}}
+{% endblock %}
+
+{% block content %}
+
+    <h1>{{ mydishes.name }}</h1>
+        
+    <p>Description: {{ mydishes.description }}</p>
+    <p>Price: {{ mydishes.precio }}</p>
+    <p>Vegetarian: {{ mydishes.is_vegetarian }}</p>
+    <p>Spicy: {{mydishes.is_spicy}}</p>
+
+    <p>Back to <a href="/menu">Menu</a></p>
+
+{% endblock %}

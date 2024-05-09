@@ -1,0 +1,31 @@
+{% extends "master.html" %}
+
+{% block title %}
+    My Orders
+{% endblock %}
+
+{% block content %}
+    <h3>Your Orders</h3>
+
+    <a href="create_order/">Add</a>
+
+    <table>
+        <tr>
+            <th>Product</th>
+            <th>Date Ordered</th>
+            <th>Update</th>
+            <th>Remove</th>
+        </tr>
+
+        {% for order in orders %}
+            <tr>
+                <td>{{order.dish}}</td>
+                <td>{{order.date_created}}</td>
+                <td><a href="update_order/{{ order.id }}">Update</a></td>
+                <td><a href="delete_order/{{ order.id }}">Delete</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <p><a href="/">HOME</a></p>
+{% endblock %}

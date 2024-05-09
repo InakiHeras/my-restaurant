@@ -1,0 +1,17 @@
+{% extends "master.html" %}
+
+{% block title %}
+    Delete Order
+{% endblock %}
+
+{% block content %}
+
+    <p>Are you sure you want to delete "{{item}}"?</p>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <a href="/my_orders">Cancel</a>
+        <input type="submit" value="Confirm">
+    </form>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "master.html" %}
+
+{% block title %}
+    My Restaurant - Menu
+{% endblock %}
+
+{% block content %}
+    
+    <p><a href="/">HOME</a></p>
+
+    <h1>Menu</h1>
+
+    <ul>
+        {% for x in mydishes %}
+            <li><a href="details/{{ x.id }}">{{ x.name }} - ${{ x.precio }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

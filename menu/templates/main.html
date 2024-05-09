@@ -1,0 +1,17 @@
+{% extends "master.html" %}
+
+{% block title %}
+    My Restaurant
+{% endblock %}
+
+{% block content %}
+
+    <h1>My Restaurant</h1>
+
+    <h3>Menu</h3>
+
+    <p>Check out our <a href="menu/">menu</a></p>
+    <p>You can order <a href="my_orders/">here!</a></p>
+
+    <p>You have visited this page {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.</p>
+{% endblock %}

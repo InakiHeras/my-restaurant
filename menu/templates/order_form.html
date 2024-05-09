@@ -1,0 +1,16 @@
+{% extends "master.html" %}
+
+{% block title %}
+    Add Order
+{% endblock %}
+
+{% block content %}
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form}}
+
+        <input type="submit" value="Submit">
+    </form>
+
+{% endblock %}
