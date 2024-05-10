@@ -3,6 +3,7 @@ from django.shortcuts import redirect
 from django.template import loader
 from .models import *
 from .forms import OrderForm
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 def menu(request):
     mydishes = Dish.objects.all().values()
@@ -33,6 +34,7 @@ def main(request):
 
     return HttpResponse(template.render(context))
 
+@login_required
 def myOrders(request):
     orders = Order.objects.all().prefetch_related('dish')
     template = loader.get_template('orders.html')
@@ -41,7 +43,7 @@ def myOrders(request):
     }
     return HttpResponse(template.render(context, request))
 
-
+@login_required
 def createOrder(request):
     form = OrderForm()
 
@@ -58,6 +60,7 @@ def createOrder(request):
     template = loader.get_template('order_form.html')
     return HttpResponse(template.render(context, request))
 
+@login_required
 def updateOrder(request, pk):
     order = Order.objects.get(id=pk)
     form = OrderForm(instance=order)
@@ -74,6 +77,7 @@ def updateOrder(request, pk):
     template = loader.get_template('order_form.html')
     return HttpResponse(template.render(context, request))
 
+@login_required
 def deleteOrder(request, pk):
     order = Order.objects.get(id=pk)
 
